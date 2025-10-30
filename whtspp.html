@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Device Info Logger</title>
+</head>
+<body>
+  <h2>Your Public IP Address:</h2>
+  <p id="ip">Loading...</p>
+
+  <script>
+    fetch('https://api.ipify.org?format=json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("ip").innerText = data.ip;
+        console.log("Public IP Logged:", data.ip);
+      })
+      .catch(err => console.error("Error fetching IP:", err));
+  </script>
+</body>
+</html>
